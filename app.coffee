@@ -3,6 +3,7 @@ prompt = require('prompt')
 
 targetDirectory = folderName = howManyFolders  = 'unknown'
 foldersToMake = []
+
 validateFolderSyntax = (folder) ->
   if folder.lastIndexOf('/') !=  folder.length-1
   then folder += '/'
@@ -22,10 +23,8 @@ makefolders = () ->
 prompt.start()
 prompt.get(['targetDirectory', 'folderName', 'howManyFolders'], (err, result) ->
   if err then console.log(err)
-
   targetDirectory = validateFolderSyntax(result.targetDirectory)
   folderName = result.folderName
   howManyFolders = result.howManyFolders
-
   makefolders()
 )
